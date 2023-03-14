@@ -1,0 +1,44 @@
+.main-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+}
+
+.text {
+    border: 1px solid black;
+}
+
+.num-row1 {
+    display: flex;
+}
+.num-row2 {
+    display: flex;
+    justify-content: space-between;
+}
+.num-row3 {
+    display: flex;
+    justify-content: space-between;
+}
+.num-row4 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.num-row5 {
+    display: flex;
+    justify-content: space-between;
+}
+
+#clear,#equal {
+width: 100%;
+}
+
+#zero {
+    width: 100%;
+}
+
+.button {
+    width: 40%;
+}
