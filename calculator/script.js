@@ -127,6 +127,11 @@ equal.addEventListener('click', () => {
     else if (num1 == 0) {
         text.textContent = `0`;
     }
+    else if (num2==0){
+        output = operate(num1, num2, operation);
+        console.log(output);
+        text.textContent = `${output}`;
+    }
     else{
         return;
     }
