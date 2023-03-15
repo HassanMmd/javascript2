@@ -150,9 +150,6 @@ dot.addEventListener('click', () => {
 })
 
 equal.addEventListener('click', () => {
-    if (parseFloat(output)) {
-        dot.disabled = true
-    }
     num2 = output;
     if (num1 == 0) {
         text.textContent = `0`;
