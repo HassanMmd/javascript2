@@ -52,6 +52,9 @@ dot.addEventListener('mouseenter', () => {
 for (let i = 0; i < btns.length; i++) {
     btns[i].addEventListener('click', () => {
         if (btns[i].classList.contains("num")) {
+            if (text.textContent==`ERROR!`){
+                output=``;
+            }
             addingInput(btns[i].value);
             showResult();
         } else if (btns[i].classList.contains("operation")) {
@@ -151,6 +154,9 @@ dot.addEventListener('click', () => {
 })
 
 equal.addEventListener('click', () => {
+    if (text.textContent==`ERROR!`){
+        output=``;
+    }
     num2 = output;
     if (num1 == 0) {
         text.textContent = `0`;
