@@ -8,6 +8,7 @@ const text = document.body.querySelector('.text')
 const dot = document.body.querySelector('#dot')
 const equal = document.body.querySelector('#equal')
 const clear = document.body.querySelector('#clear')
+const eraseBtn = document.body.querySelector('.erase')
 
 document.addEventListener('keydown', (e) => {
     if (e.key === '1') {
@@ -156,7 +157,7 @@ equal.addEventListener('click', () => {
     } else {
         output = operate(num1, num2, operation);
         console.log(operation);
-        text.textContent = (`${output}`).slice(0, 10);
+        text.textContent = parseFloat(`${output}`).toFixed(4).slice(0, 10);
     }
 })
 
@@ -168,4 +169,8 @@ clear.addEventListener('click', () => {
     text.textContent = `0`;
     console.log(output);
     dot.disabled = false;
+})
+
+eraseBtn.addEventListener('click', () => {
+    erase();
 })
