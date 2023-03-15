@@ -52,8 +52,8 @@ dot.addEventListener('mouseenter', () => {
 for (let i = 0; i < btns.length; i++) {
     btns[i].addEventListener('click', () => {
         if (btns[i].classList.contains("num")) {
-            if (text.textContent==`ERROR!`){
-                output=``;
+            if (text.textContent == `ERROR!`) {
+                output = ``;
             }
             addingInput(btns[i].value);
             showResult();
@@ -77,22 +77,36 @@ for (let i = 0; i < btns.length; i++) {
 function add(number1, number2) {
     n1 = Number(number1);
     n2 = Number(number2);
-    return n1 + n2;
+    if (`${n1}`.includes(`.`) || `${n2}`.includes(`.`)) {
+        return (number1 + number2).toFixed(4);
+    } else {
+        return n1 + n2;
+    }
 }
 
 function subtract(number1, number2) {
-    return number1 - number2;
+    if (`${number1}`.includes(`.`) || `${number2}`.includes(`.`)) {
+        return (number1 - number2).toFixed(4);
+    } else {
+        return number1 - number2;
+    }
 }
 
 function multiply(number1, number2) {
-    return number1 * number2;
+    if (`${number1}`.includes(`.`) || `${number2}`.includes(`.`)) {
+        return (number1 * number2).toFixed(4);
+    } else {
+        return number1 * number2;
+    }
 }
 
 function divide(number1, number2) {
     if (number2 == 0) {
         return `ERROR!`
     }
-    else {
+    else if (`${number1}`.includes(`.`) || `${number2}`.includes(`.`)) {
+        return (number1 / number2).toFixed(4);
+    } else {
         return number1 / number2;
     }
 }
@@ -154,8 +168,8 @@ dot.addEventListener('click', () => {
 })
 
 equal.addEventListener('click', () => {
-    if (text.textContent==`ERROR!`){
-        output=``;
+    if (text.textContent == `ERROR!`) {
+        output = ``;
     }
     num2 = output;
     if (num1 == 0) {
