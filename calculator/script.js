@@ -157,7 +157,7 @@ equal.addEventListener('click', () => {
     } else {
         output = operate(num1, num2, operation);
         console.log(operation);
-        text.textContent = parseFloat(`${output}`).toFixed(4).slice(0, 10);
+        text.textContent = (`${output}`).slice(0, 10);
     }
 })
 
