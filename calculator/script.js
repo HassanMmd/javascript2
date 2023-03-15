@@ -111,7 +111,7 @@ function addingInput(input) {
 }
 
 function addingOperation(classOperation) {
-    dot.style.backgroundColor=`antiquewhite`;
+    dot.style.backgroundColor = `antiquewhite`;
     num1 = output;
     operation = `${classOperation}`;
     output = ``;
@@ -128,15 +128,15 @@ function keyIsPressed(key) {
     text.textContent = `${output}`
 }
 
-function erase(){
+function erase() {
     if (output != 0) {
-        text.textContent=`ــــ`
+        text.textContent = `ــــ`
         output = '';
     } else if (num2 != 0) {
         output = '';
-        text.textContent=`ــــ`
+        text.textContent = `ــــ`
     } else {
-        text.textContent=`ــــ`
+        text.textContent = `ــــ`
         operation = null;
     }
 }
@@ -148,7 +148,11 @@ dot.addEventListener('click', () => {
     text.textContent = `${output}`;
     dot.disabled = true;
 })
+
 equal.addEventListener('click', () => {
+    if (parseFloat(output)) {
+        dot.disabled = true
+    }
     num2 = output;
     if (num1 == 0) {
         text.textContent = `0`;
@@ -158,12 +162,13 @@ equal.addEventListener('click', () => {
         text.textContent = (`${output}`).slice(0, 10);
     }
 })
+
 clear.addEventListener('click', () => {
-    dot.style.backgroundColor=`antiquewhite`;
-        output = ``;
-        num1 = 0;
-        num2 = 0;
-        text.textContent = `0`;
-        console.log(output);
-        dot.disabled = false;
+    dot.style.backgroundColor = `antiquewhite`;
+    output = ``;
+    num1 = 0;
+    num2 = 0;
+    text.textContent = `0`;
+    console.log(output);
+    dot.disabled = false;
 })
