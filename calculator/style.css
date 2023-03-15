@@ -1,26 +1,39 @@
+body {
+    background-color: cadetblue;
+}
+
 .main-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: start;
-    gap: 10px;
+}
+
+.text-section {
+    background-color: cadetblue;
 }
 
 .text {
-    border: 1px solid black;
+    background-color: aliceblue;
+    color: rgb(95, 95, 199);
+    border: 2px solid black;
+    font-size: 20px;
+    border-radius: 10%;
 }
 
 .num-row1 {
     display: flex;
 }
+
 .num-row2 {
     display: flex;
     justify-content: space-between;
 }
+
 .num-row3 {
     display: flex;
     justify-content: space-between;
 }
+
 .num-row4 {
     display: flex;
     justify-content: space-between;
@@ -31,14 +44,19 @@
     justify-content: space-between;
 }
 
-#clear,#equal {
-width: 100%;
-}
-
-#zero {
+#clear,
+#equal {
     width: 100%;
 }
 
-.button {
+#zero {
+    width: 95%;
+}
+
+button {
+    border-radius: 10%;
+    background-color: antiquewhite;
+    color: rgb(17, 93, 93);
+    font-size: 20px;
     width: 40%;
 }
