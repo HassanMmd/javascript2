@@ -1,6 +1,7 @@
 let playerWins = 0;
 let computerWins = 0;
 
+const restartButton= document.createElement('button');
 const playerParagraph = document.createElement('p');
 const computerParagraph = document.createElement('p');
 const resultParagraph = document.createElement('p');
@@ -14,6 +15,7 @@ let input;
 rockButton.textContent = `Rock`;
 paperButton.textContent = `Paper`;
 scissorsButton.textContent = `Scissors`;
+restartButton.textContent=`Restart`;
 
 let btns = [rockButton, paperButton, scissorsButton];
 for (let i = 0; i < btns.length; i++) {
@@ -111,7 +113,11 @@ function playRound() {
     resultParagraph.textContent = `${result}`
     if (playerWins == 5) {
         div.textContent = `Congrats! You reach 5 points`;
+        document.body.appendChild(restartButton);
         document.body.appendChild(div)
+        rockButton.disabled=true;
+        paperButton.disabled=true;
+        scissorsButton.disabled=true;
     }
     return result;
 }
@@ -128,6 +134,14 @@ scissorsButton.addEventListener('click', () => {
     input = 'scissors';
     playRound();
 })
+restartButton.addEventListener('click',()=>{
+    playerWins=0;
+    rockButton.disabled=false;
+    paperButton.disabled=false;
+    scissorsButton.disabled=false;
+    document.body.removeChild(div);
+})
+
 document.body.appendChild(rockButton)
 document.body.appendChild(paperButton)
 document.body.appendChild(scissorsButton)
