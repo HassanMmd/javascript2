@@ -132,12 +132,14 @@ function keyIsPressed(key) {
 }
 
 function erase() {
-    if (output != 0) {
+    if (output != null) {
         text.textContent = `ــــ`
         output = '';
-    } else if (num2 != 0) {
+    } else if (num2 != null) {
         output = '';
         text.textContent = `ــــ`
+    } else {
+        operation =null;
     }
 }
 
