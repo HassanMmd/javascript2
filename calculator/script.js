@@ -39,16 +39,6 @@ document.addEventListener('keydown', (e) => {
     }
 })
 
-clear.addEventListener('mouseenter', () => {
-    clear.style.backgroundColor = 'aquamarine';
-})
-equal.addEventListener('mouseenter', () => {
-    equal.style.backgroundColor = 'aquamarine';
-})
-dot.addEventListener('mouseenter', () => {
-    dot.style.backgroundColor = 'aquamarine';
-})
-
 for (let i = 0; i < btns.length; i++) {
     btns[i].addEventListener('click', () => {
         if (btns[i].classList.contains("num")) {
@@ -73,41 +63,36 @@ for (let i = 0; i < btns.length; i++) {
     })
 }
 
+clear.addEventListener('mouseenter', () => {
+    clear.style.backgroundColor = 'aquamarine';
+})
+equal.addEventListener('mouseenter', () => {
+    equal.style.backgroundColor = 'aquamarine';
+})
+dot.addEventListener('mouseenter', () => {
+    dot.style.backgroundColor = 'aquamarine';
+})
 
 function add(number1, number2) {
     n1 = Number(number1);
     n2 = Number(number2);
-    if (`${n1}`.includes(`.`) || `${n2}`.includes(`.`)) {
-        return (number1 + number2).toFixed(4);
-    } else {
-        return n1 + n2;
-    }
+    return Math.round(((n1 + n2) + Number.EPSILON) * 10000) / 10000;
 }
 
 function subtract(number1, number2) {
-    if (`${number1}`.includes(`.`) || `${number2}`.includes(`.`)) {
-        return (number1 - number2).toFixed(4);
-    } else {
-        return number1 - number2;
-    }
+    return Math.round(((number1 - number2) + Number.EPSILON) * 10000) / 10000;
 }
 
 function multiply(number1, number2) {
-    if (`${number1}`.includes(`.`) || `${number2}`.includes(`.`)) {
-        return (number1 * number2).toFixed(4);
-    } else {
-        return number1 * number2;
-    }
+    return Math.round(((number1 * number2) + Number.EPSILON) * 10000) / 10000;
 }
 
 function divide(number1, number2) {
     if (number2 == 0) {
         return `ERROR!`
     }
-    else if (`${number1}`.includes(`.`) || `${number2}`.includes(`.`)) {
-        return (number1 / number2).toFixed(4);
-    } else {
-        return number1 / number2;
+    else {
+        return Math.round(((number1 / number2) + Number.EPSILON) * 10000) / 10000;;
     }
 }
 
@@ -178,6 +163,13 @@ equal.addEventListener('click', () => {
         output = operate(num1, num2, operation);
         console.log(operation);
         text.textContent = (`${output}`).slice(0, 10);
+    }
+    if (text.textContent.includes(`.`)){
+        dot.style.backgroundColor = 'aquamarine';
+        dot.disabled=true;
+    }else{
+        dot.style.backgroundColor = `antiquewhite`;
+        dot.disabled=false;
     }
 })
 
