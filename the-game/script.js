@@ -1,5 +1,6 @@
 let playerWins = 0;
 let computerWins = 0;
+
 const playerParagraph = document.createElement('p');
 const computerParagraph = document.createElement('p');
 const resultParagraph = document.createElement('p');
@@ -10,9 +11,19 @@ const resultrButton = document.createElement('button');
 const div = document.createElement('div');
 let input;
 
-rockButton.textContent=`Rock`;
-paperButton.textContent=`Paper`;
-scissorsButton.textContent=`Scissors`;
+rockButton.textContent = `Rock`;
+paperButton.textContent = `Paper`;
+scissorsButton.textContent = `Scissors`;
+
+let btns = [rockButton, paperButton, scissorsButton];
+for (let i = 0; i < btns.length; i++) {
+    btns[i].addEventListener('mouseenter', () => {
+        btns[i].style.backgroundColor = 'aquamarine';
+    })
+    btns[i].addEventListener('mouseout', () => {
+        btns[i].style.backgroundColor = 'darkcyan';
+    })
+}
 
 function computerPlay() {
     let result;
@@ -28,23 +39,12 @@ function computerPlay() {
             result = `Scissors`;
             break;
     }
-    computerParagraph.textContent=`${result}`;
+    computerParagraph.textContent = `${result}`;
     return result;
 }
 
 function playerPlay() {
     let result;
-/*     rockButton.addEventListener('click',()=> {
-        input = `rock`;
-    })
-    paperButton.addEventListener('click',()=> {
-        input = `paper`;
-    })
-    scissorsButton.addEventListener('click',()=> {
-        input = `scissors`;
-    }) */
- /*    let inputText = prompt(`Please choose :  Rock, Paper, Scissors`); */
-/*     let lowerInputText = inputText.toLowerCase(); */
     switch (input) {
         case `paper`:
             result = `Paper`;
@@ -65,7 +65,7 @@ function playerPlay() {
         return playerPlay();
     }
     else {
-        playerParagraph.textContent=`${result}`;
+        playerParagraph.textContent = `${result}`;
         return result;
     }
 }
@@ -108,23 +108,24 @@ function playRound() {
             break;
     }
     console.log(result);
-    resultParagraph.textContent=`${result}`
-    if (playerWins==5) {
-        div.textContent=`Congrats! You reach 5 points`;
+    resultParagraph.textContent = `${result}`
+    if (playerWins == 5) {
+        div.textContent = `Congrats! You reach 5 points`;
         document.body.appendChild(div)
     }
     return result;
 }
-rockButton.addEventListener('click',()=> {
-    input=`rock`;
+
+rockButton.addEventListener('click', () => {
+    input = `rock`;
     playRound();
 })
-paperButton.addEventListener('click',()=> {
-    input=`paper`;
+paperButton.addEventListener('click', () => {
+    input = `paper`;
     playRound();
 })
-scissorsButton.addEventListener('click',()=> {
-    input='scissors';
+scissorsButton.addEventListener('click', () => {
+    input = 'scissors';
     playRound();
 })
 document.body.appendChild(rockButton)
