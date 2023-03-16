@@ -115,7 +115,7 @@ function addingInput(input) {
 
 function addingOperation(classOperation) {
     dot.style.backgroundColor = `antiquewhite`;
-    num1 = output;
+    num1 = Number(output);
     operation = `${classOperation}`;
     output = ``;
     dot.disabled = false;
@@ -138,9 +138,6 @@ function erase() {
     } else if (num2 != 0) {
         output = '';
         text.textContent = `ــــ`
-    } else {
-        text.textContent = `ــــ`
-        operation = null;
     }
 }
 
@@ -156,20 +153,20 @@ equal.addEventListener('click', () => {
     if (text.textContent == `ERROR!`) {
         output = ``;
     }
-    num2 = output;
-    if (num1 == 0) {
-        text.textContent = `0`;
+    num2 = Number(output);
+    if (num1 == 0 && operation==null) {
+        text.textContent = `${output}`;
     } else {
         output = operate(num1, num2, operation);
         console.log(operation);
         text.textContent = (`${output}`).slice(0, 10);
     }
-    if (text.textContent.includes(`.`)){
+    if (text.textContent.includes(`.`)) {
         dot.style.backgroundColor = 'aquamarine';
-        dot.disabled=true;
-    }else{
+        dot.disabled = true;
+    } else {
         dot.style.backgroundColor = `antiquewhite`;
-        dot.disabled=false;
+        dot.disabled = false;
     }
 })
 
