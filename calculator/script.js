@@ -156,7 +156,7 @@ equal.addEventListener('click', () => {
         output = ``;
     }
     num2 = Number(output);
-    if (num1 == 0 && operation==null) {
+    if (num1 == 0 ) {
         text.textContent = `0`;
     } else {
         output = operate(num1, num2, operation);
