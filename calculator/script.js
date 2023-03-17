@@ -157,7 +157,7 @@ equal.addEventListener('click', () => {
     }
     num2 = Number(output);
     if (num1 == 0 && operation==null) {
-        text.textContent = `${output}`;
+        text.textContent = `0`;
     } else {
         output = operate(num1, num2, operation);
         console.log(operation);
