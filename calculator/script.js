@@ -1,5 +1,5 @@
-let num1 = 0;
-let num2 = 0;
+let num1=null ;
+let num2=null;
 let output = ``;
 let operation;
 
@@ -152,16 +152,22 @@ dot.addEventListener('click', () => {
 })
 
 equal.addEventListener('click', () => {
+    console.log(num1)
+    num2 = Number(output);
     if (text.textContent == `ERROR!`) {
         output = ``;
     }
-    num2 = Number(output);
-    if (num1 == 0 ) {
-        text.textContent = `0`;
-    } else {
+    if(num1==null ) {
+        text.textContent=`0`
+    }else if (num2==null){
+        text.textContent='0'
+    }
+    if (num2!=null) {
         output = operate(num1, num2, operation);
         console.log(operation);
         text.textContent = (`${output}`).slice(0, 10);
+    }else{
+        return;
     }
     if (text.textContent.includes(`.`)) {
         dot.style.backgroundColor = 'aquamarine';
